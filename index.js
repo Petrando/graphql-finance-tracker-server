@@ -2,7 +2,7 @@ import express from "express";
 import http from "http";
 import cors from "cors";
 import dotenv from "dotenv"
-import path from "path";
+//import path from "path";
 
 import passport from "passport";
 import session from "express-session";
@@ -25,7 +25,7 @@ import { configurePassport } from "./passport/passport.config.js";
 dotenv.config()
 configurePassport()
 
-const _dirname = path.resolve()
+//const _dirname = path.resolve()
 const app = express();
 
 const httpServer = http.createServer(app);
@@ -80,10 +80,11 @@ app.use(
   }),
 );
 
+/*
 app.use(express.static(path.join(_dirname, "frontend/dist")))
 app.get("*", (req, res) => {
   res.sendFile(path.join(_dirname, "frontend/dist", "index.html"))
-})
+})*/
 // Modified server startup
 await new Promise((resolve) => httpServer.listen({ port: 4000 }, resolve));
 await connectDB();
